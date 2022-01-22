@@ -1,1 +1,1 @@
-class UsersController {}
+export class UsersController {}

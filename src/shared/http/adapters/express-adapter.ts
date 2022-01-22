@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { IcontrollerBase } from '../../../modules/interface/controller-base';
+import { IcontrollerBase } from '../../controller/controller-base';
 import { IhttpRequest } from '../ports/http';
 
 export const adaptRoutes = (controller: IcontrollerBase) => {

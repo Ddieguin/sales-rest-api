@@ -13,10 +13,10 @@ export class ProductRepository extends Repository<Product> {
         return product;
     }
 
-    async exists(name: string) {
+    async exists(id: string) {
         const result = await this.findOne({
             where: {
-                name_product: name,
+                id_product: id,
             },
         });
 
