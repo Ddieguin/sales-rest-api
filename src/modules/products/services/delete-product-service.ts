@@ -1,25 +1,24 @@
 import { AppError } from '../../../shared/http/errors/app-error';
-import { IshowProductDto } from '../typeorm/dto/show-product-dto';
+import { IdeleteProductDto } from '../typeorm/dto/delete-product-dto';
 import { ProductRepository } from '../typeorm/repositories/product-repository';
-import { Product } from '../typeorm/entities/product';
 
-export class ShowProductService {
+export class DeleteProductService {
     private readonly productsRepository: ProductRepository;
     constructor(productsRepository: ProductRepository) {
         this.productsRepository = productsRepository;
     }
 
-    async execute({ id }: IshowProductDto): Promise<Product | undefined> {
-        const product = await this.productsRepository.findOne({
+    async execute({ id }: IdeleteProductDto): Promise<void> {
+        const productExists = await this.productsRepository.findOne({
             where: {
                 id_product: id,
             },
         });
 
-        if (!product) {
-            throw new AppError(`Product not found`);
+        if (!productExists) {
+            throw new AppError('Product not found');
         }
 
-        return product;
+        await this.productsRepository.remove(productExists);
     }
 }
