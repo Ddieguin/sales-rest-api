@@ -19,7 +19,7 @@ export class UpdateProductController {
                 sucess: true,
                 data: product,
             },
-            status: 200,
+            statusCode: 200,
         };
     }
 }

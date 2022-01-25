@@ -1,3 +1,4 @@
+import 'reflect-metadata';
 import createConnection from '../typeorm/index';
 import dotenv from 'dotenv';
 dotenv.config();

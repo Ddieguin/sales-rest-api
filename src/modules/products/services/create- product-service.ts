@@ -19,7 +19,7 @@ export class CreateProductService {
         );
 
         if (productExists) {
-            throw new AppError(name_product);
+            throw new AppError(`Product already exists`);
         }
 
         const product = await this.productsRepository.create({

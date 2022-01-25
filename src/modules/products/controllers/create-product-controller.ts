@@ -17,7 +17,7 @@ export class CreateProductController implements IcontrollerBase {
                 sucess: true,
                 data: product,
             },
-            status: 201,
+            statusCode: 201,
         };
     }
 }

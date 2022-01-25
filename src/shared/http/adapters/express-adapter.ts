@@ -11,6 +11,6 @@ export const adaptRoutes = (controller: IcontrollerBase) => {
         };
 
         const response = await controller.handle(request);
-        return res.status(response.status).json(response.body);
+        return res.status(response.statusCode).json(response.body);
     };
 };

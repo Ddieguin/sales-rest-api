@@ -15,7 +15,7 @@ export class IndexProductController implements IcontrollerBase {
             body: {
                 data: products,
             },
-            status: 200,
+            statusCode: 200,
         };
     }
 }

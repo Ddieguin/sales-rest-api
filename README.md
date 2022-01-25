@@ -1,13 +1,12 @@
-```
-
-```
-
 ## Instalação
 
 1. **Para instalar as dependências use:**
 
 ```sh
 $ npm install
+
+$ yarn install
+
 ```
 
 ## Executar Testes
@@ -16,6 +15,9 @@ $ npm install
 
 ```sh
 $ npm run test
+
+$ yarn test
+
 ```
 
 ## Rodar Aplicação
@@ -23,7 +25,19 @@ $ npm run test
 1. **Para rodar a aplicação use:**
 
 ```sh
-$ npm run start
+$ npm start
+
+$ yarn start
+```
+
+2. **Para rodar a aplicação em ambiente de desenvolvimento:**
+
+```sh
+
+$ npm run dev
+
+$ yarn dev
+
 ```
 
 # Sales REST API

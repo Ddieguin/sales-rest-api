@@ -15,7 +15,7 @@ export class DeleteProductController implements IcontrollerBase {
             body: {
                 sucess: true,
             },
-            status: 200,
+            statusCode: 200,
         };
     }
 }
