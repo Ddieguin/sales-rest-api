@@ -21,7 +21,7 @@ export const appError = (
             message: err.message,
         });
     }
-
+    console.log(err);
     return res.status(500).json({
         status: 'error',
         message: 'Internal server error',

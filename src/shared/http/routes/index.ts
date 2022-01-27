@@ -1,7 +1,7 @@
 import { Express } from 'express';
 import 'express-async-errors';
-import { productsRoutes } from '../../../modules/products/routes/products-routes';
+import { routes } from './routes';
 
 export default (app: Express): void => {
-    app.use('/api/products', productsRoutes);
+    app.use('/api', routes);
 };

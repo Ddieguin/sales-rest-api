@@ -13,6 +13,7 @@ export class IndexProductController implements IcontrollerBase {
 
         return {
             body: {
+                sucess: true,
                 data: products,
             },
             statusCode: 200,

@@ -1,10 +1,10 @@
-import { getCustomRepository } from 'typeorm';
 import { CreateProductController } from '../controllers/create-product-controller';
 import { CreateProductService } from '../services/create- product-service';
-import { ProductRepository } from '../typeorm/repositories/product-repository';
+import { SingletonProductRepository } from '../typeorm/repositories/singleton-repository';
 
 export const makeCreateProductController = (): CreateProductController => {
-    const productRepository = getCustomRepository(ProductRepository);
-    const createProductService = new CreateProductService(productRepository);
+    const createProductService = new CreateProductService(
+        SingletonProductRepository.getInstance(),
+    );
     return new CreateProductController(createProductService);
 };
