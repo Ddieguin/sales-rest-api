@@ -8,6 +8,8 @@ export const adaptRoutes = (controller: IcontrollerBase) => {
             body: req.body,
             params: req.params,
             query: req.query,
+            user_id: req.user_id,
+            file: req.file,
         };
 
         const response = await controller.handle(request);

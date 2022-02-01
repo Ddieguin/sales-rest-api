@@ -1,10 +1,10 @@
 import { IndexProductController } from '../controllers/index-product-controller';
 import { ListProductService } from '../services/list-product-service';
-import { SingletonProductRepository } from '../typeorm/repositories/singleton-repository';
+import { ProductRepository } from '../typeorm/repositories/product-repository';
 
 export const makeIndexProductController = (): IndexProductController => {
     const listProductService = new ListProductService(
-        SingletonProductRepository.getInstance(),
+        ProductRepository.getInstance(),
     );
     return new IndexProductController(listProductService);
 };

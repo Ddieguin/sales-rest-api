@@ -1,9 +1,18 @@
-import { EntityRepository, Repository } from 'typeorm';
+import { EntityRepository, getCustomRepository, Repository } from 'typeorm';
 import { User } from '../entities/user';
 
-//! implementation methods of repository
 @EntityRepository(User)
 export class UserRepository extends Repository<User> {
+    private static instance: UserRepository;
+
+    public static getInstance(): UserRepository {
+        if (!UserRepository.instance) {
+            UserRepository.instance = getCustomRepository(this);
+        }
+
+        return UserRepository.instance;
+    }
+
     async findByName(username: string): Promise<User | undefined> {
         const user = await this.findOne({
             where: {

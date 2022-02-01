@@ -2,6 +2,7 @@ import { AppError } from '../../../shared/http/errors/app-error';
 import { UserRepository } from '../typeorm/repositories/user-repository';
 import { compare } from 'bcrypt';
 import { sign } from 'jsonwebtoken';
+import config from '../../../config/auth'
 
 interface IAuthetication {
     email: string;
@@ -28,8 +29,8 @@ export class CreateSessionService {
         }
 
         //jwt token
-        const token = sign({ id: user.id }, process.env.JWT_SECRET, {
-            expiresIn: '1d',
+        const token = sign({ id: user.id }, config.jwt.secret, {
+            expiresIn: config.jwt.expiresIn,
         });
 
         return {

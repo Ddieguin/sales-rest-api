@@ -5,6 +5,8 @@ export interface IhttpResponse {
 
 export interface IhttpRequest {
     body?: any;
+    user_id?: any;
+    file?: any;
     params?: any;
     query?: any;
 }

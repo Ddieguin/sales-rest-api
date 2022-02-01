@@ -1,8 +1,18 @@
-import { EntityRepository, Repository } from 'typeorm';
+import { EntityRepository, getCustomRepository, Repository } from 'typeorm';
 import { Product } from '../entities/product';
 
 @EntityRepository(Product)
 export class ProductRepository extends Repository<Product> {
+    private static instance: ProductRepository;
+
+    public static getInstance(): ProductRepository {
+        if (!ProductRepository.instance) {
+            ProductRepository.instance = getCustomRepository(this);
+        }
+
+        return ProductRepository.instance;
+    }
+
     findByName(name: string): Promise<Product | undefined> {
         const product = this.findOne({
             where: {

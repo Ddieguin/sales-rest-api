@@ -1,10 +1,10 @@
 import { DeleteProductController } from '../controllers/delete-product-controller';
 import { DeleteProductService } from '../services/delete-product-service';
-import { SingletonProductRepository } from '../typeorm/repositories/singleton-repository';
+import { ProductRepository } from '../typeorm/repositories/product-repository';
 
 export const makeDeleteProductController = (): DeleteProductController => {
     const deleteProductService = new DeleteProductService(
-        SingletonProductRepository.getInstance(),
+        ProductRepository.getInstance(),
     );
     return new DeleteProductController(deleteProductService);
 };
