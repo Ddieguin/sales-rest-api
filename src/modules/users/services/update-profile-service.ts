@@ -1,6 +1,6 @@
 import path from 'path';
 import { AppError } from '../../../shared/http/errors/app-error';
-import { IuploadProfileDto } from '../typeorm/dto/upload-profile-dto';
+import { IuploadProfilePictureDto } from '../typeorm/dto/upload-profile-dto';
 import { UserRepository } from '../typeorm/repositories/user-repository';
 import uploadConfig from '../../../config/upload';
 import fs from 'fs/promises';
@@ -16,7 +16,7 @@ export class UpdateProfileService {
     async execute({
         user_id,
         profilePictureName,
-    }: IuploadProfileDto): Promise<User | undefined> {
+    }: IuploadProfilePictureDto): Promise<User> {
         const user = await this.userRepository.findById(user_id);
 
         if (!user) {

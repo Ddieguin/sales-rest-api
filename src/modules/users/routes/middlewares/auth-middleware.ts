@@ -1,6 +1,7 @@
 import { NextFunction, Request, Response } from 'express';
 import { AppError } from '../../../../shared/http/errors/app-error';
 import { verify } from 'jsonwebtoken';
+import { UsingJoinColumnOnlyOnOneSideAllowedError } from 'typeorm';
 
 interface ItokenPayload {
     id: string;
