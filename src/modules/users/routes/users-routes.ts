@@ -8,6 +8,8 @@ import { bodyCreateUserValidation } from './middlewares/validations/body-create-
 import uploadConfig from '../../../config/upload';
 import multer from 'multer';
 import { makeUpdateUserController } from '../factories/update-user';
+import { makeShowUserController } from '../factories/show-user';
+import { uuidValidation } from '../../../shared/controller/validations/uuid-validation';
 
 const usersRoutes = Router();
 const upload = multer(uploadConfig);
@@ -24,11 +26,16 @@ usersRoutes.patch(
     upload.single('avatar'),
     adaptRoutes(makeUpdateProfileController()),
 );
-
 usersRoutes.patch(
     '/',
     isAuthenticated(),
     adaptRoutes(makeUpdateUserController()),
+);
+usersRoutes.get(
+    '/:id',
+    isAuthenticated(),
+    uuidValidation(),
+    adaptRoutes(makeShowUserController()),
 );
 
 export { usersRoutes };

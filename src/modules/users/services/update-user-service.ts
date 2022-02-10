@@ -34,7 +34,7 @@ export class UpdateUserService {
             },
         });
 
-        if (emailAlreadyExists && emailAlreadyExists.email != email) {
+        if (emailAlreadyExists && user.email != email) {
             throw new AppError('Email already in use');
         }
 

@@ -1,5 +1,4 @@
 import { AppError } from '../../../shared/http/errors/app-error';
-import { IdeleteProductDto } from '../typeorm/dto/delete-product-dto';
 import { ProductRepository } from '../typeorm/repositories/product-repository';
 
 export class DeleteProductService {
@@ -8,7 +7,7 @@ export class DeleteProductService {
         this.productsRepository = productsRepository;
     }
 
-    async execute({ id }: IdeleteProductDto): Promise<void> {
+    async execute(id: string): Promise<void> {
         const productExists = await this.productsRepository.findOne({
             where: {
                 id_product: id,

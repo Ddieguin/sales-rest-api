@@ -9,7 +9,7 @@ export class ShowProductController implements IcontrollerBase {
     }
 
     async handle({ params }: IhttpRequest): Promise<IhttpResponse> {
-        const products = await this.showProductService.execute(params);
+        const products = await this.showProductService.execute(params.id);
 
         return {
             body: {

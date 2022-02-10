@@ -1,5 +1,4 @@
 import { AppError } from '../../../shared/http/errors/app-error';
-import { IshowProductDto } from '../typeorm/dto/show-product-dto';
 import { ProductRepository } from '../typeorm/repositories/product-repository';
 import { Product } from '../typeorm/entities/product';
 
@@ -9,7 +8,7 @@ export class ShowProductService {
         this.productsRepository = productsRepository;
     }
 
-    async execute({ id }: IshowProductDto): Promise<Product | undefined> {
+    async execute(id: string): Promise<Product | undefined> {
         const product = await this.productsRepository.findOne({
             where: {
                 id_product: id,

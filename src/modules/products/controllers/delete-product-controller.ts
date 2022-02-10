@@ -9,7 +9,7 @@ export class DeleteProductController implements IcontrollerBase {
     }
 
     async handle({ params }: IhttpRequest): Promise<IhttpResponse> {
-        await this.deleteProductService.execute(params);
+        await this.deleteProductService.execute(params.id);
 
         return {
             body: {

@@ -1,4 +1,4 @@
-import { UpdateUserController } from '../controllers/update-user.controller';
+import { UpdateUserController } from '../controllers/update-user-controller';
 import { UpdateUserService } from '../services/update-user-service';
 import { UserRepository } from '../typeorm/repositories/user-repository';
 

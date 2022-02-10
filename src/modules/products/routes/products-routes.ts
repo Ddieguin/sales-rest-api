@@ -5,7 +5,7 @@ import { makeIndexProductController } from '../factories';
 import { makeShowProductController } from '../factories/show';
 import { makeUpdateProductController } from '../factories/update';
 import { makeDeleteProductController } from '../factories/delete';
-import { uuidValidation } from './validations/uuid-validation';
+import { uuidValidation } from '../../../shared/controller/validations/uuid-validation';
 import { bodyCreateProductValidation } from './validations/body-create-product-validation';
 import { bodyUpdateProductValidation } from './validations/body-update-product-validation';
 
