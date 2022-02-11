@@ -8,8 +8,11 @@ import { makeDeleteProductController } from '../factories/delete';
 import { uuidValidation } from '../../../shared/controller/validations/uuid-validation';
 import { bodyCreateProductValidation } from './validations/body-create-product-validation';
 import { bodyUpdateProductValidation } from './validations/body-update-product-validation';
+import { isAuthenticated } from '../../users/routes/middlewares/auth-middleware';
 
 const productsRoutes = Router();
+
+productsRoutes.use(isAuthenticated());
 
 productsRoutes.get('/', adaptRoutes(makeIndexProductController()));
 productsRoutes.get(

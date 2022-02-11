@@ -4,7 +4,10 @@ import {
     PrimaryGeneratedColumn,
     CreateDateColumn,
     UpdateDateColumn,
+    OneToMany,
+    JoinColumn,
 } from 'typeorm';
+import { OrdersProducts } from '../../../orders/typeorm/entities/orders-products';
 
 @Entity('sales-products')
 export class Product {
@@ -13,6 +16,9 @@ export class Product {
 
     @Column()
     name_product: string;
+
+    @OneToMany(() => OrdersProducts, order_products => order_products.product)
+    order_products: OrdersProducts[];
 
     @Column('decimal')
     price_product: number;
