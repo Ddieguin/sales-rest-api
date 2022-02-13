@@ -1,4 +1,5 @@
 import { EntityRepository, getCustomRepository, Repository } from 'typeorm';
+import { Iproduct } from '../../../orders/typeorm/dto/create';
 import { Product } from '../entities/product';
 
 @EntityRepository(Product)
@@ -31,5 +32,14 @@ export class ProductRepository extends Repository<Product> {
         });
 
         return result ? true : false;
+    }
+
+    async findById(id: string) {
+        const product = await this.findOne({
+            where: {
+                id_product: id,
+            },
+        });
+        return product;
     }
 }

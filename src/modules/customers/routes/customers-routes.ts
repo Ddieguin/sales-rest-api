@@ -9,7 +9,7 @@ import { makeUpdateCustomersController } from '../factories/update-customers';
 
 const customersRoutes = Router();
 
-customersRoutes.use(isAuthenticated());
+// customersRoutes.use(isAuthenticated());
 
 customersRoutes.get(
     '/:id',

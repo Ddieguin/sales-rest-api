@@ -12,7 +12,7 @@ import { isAuthenticated } from '../../users/routes/middlewares/auth-middleware'
 
 const productsRoutes = Router();
 
-productsRoutes.use(isAuthenticated());
+// productsRoutes.use(isAuthenticated());
 
 productsRoutes.get('/', adaptRoutes(makeIndexProductController()));
 productsRoutes.get(

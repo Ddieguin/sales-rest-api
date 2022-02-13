@@ -5,7 +5,6 @@ import {
     CreateDateColumn,
     UpdateDateColumn,
     OneToMany,
-    JoinColumn,
 } from 'typeorm';
 import { OrdersProducts } from '../../../orders/typeorm/entities/orders-products';
 
@@ -31,4 +30,8 @@ export class Product {
 
     @UpdateDateColumn()
     updated_at: Date;
+
+    getQuantity(): number {
+        return this.quantity;
+    }
 }

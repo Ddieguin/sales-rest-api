@@ -4,11 +4,8 @@ import { Customer } from '../typeorm/entities/customer';
 import { CustomersRepository } from '../typeorm/repositories/customers-repository';
 
 export class CreateCustomersService {
-    private readonly customersRepository: CustomersRepository;
 
-    constructor(customersRepository: CustomersRepository) {
-        this.customersRepository = customersRepository;
-    }
+    constructor(private readonly customersRepository: CustomersRepository) {}
 
     async execute({ name, email }: IcreateCustomersDto): Promise<Customer> {
         const emailAlreadyExists = await this.customersRepository.findByEmail(
